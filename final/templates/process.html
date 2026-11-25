@@ -1,0 +1,68 @@
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <p class="kpi-label">Asignaturas detectadas</p>
+    <p class="kpi-value">{{TOTAL_COURSES}}</p>
+    <p class="kpi-meta">Conectadas desde Aules</p>
+  </div>
+  <div class="kpi-card">
+    <p class="kpi-label">Tareas sin hacer resueltas</p>
+    <p class="kpi-value">{{SOLVED_TASKS}} / {{TOTAL_TASKS}}</p>
+    <p class="kpi-meta">{{SKIPPED_BREAKDOWN}}</p>
+  </div>
+  <div class="kpi-card">
+    <p class="kpi-label">Sincronizadas en Drive</p>
+    <p class="kpi-value">{{SYNCED_TASKS}} / {{TOTAL_TASKS}}</p>
+    <p class="kpi-meta">Carpeta Aules Sync (HTML/PDF/DOCX)</p>
+  </div>
+  <div class="kpi-card">
+    <p class="kpi-label">Sincronización automática</p>
+    <p class="kpi-value" style="font-size: 16px;">{{AUTO_SYNC_LABEL}}</p>
+    <p class="kpi-meta">{{SELECTED_MODEL}}</p>
+  </div>
+</div>
+
+{{PREREQ_BANNER}}
+
+<div class="split-12">
+  <section class="card col-7">
+    <div class="card-header">
+      <div>
+        <div class="meta-line" style="margin-top: 0;">
+          <span>Estado actual: {{RUN_STATUS_LABEL}}</span>
+          {{RUN_DURATION_META}}
+        </div>
+        <h2 class="card-title" style="margin-top: 4px;">Progreso del Agente en Tiempo Real</h2>
+      </div>
+      <div class="inline-form">
+        {{RUN_ACTION_BUTTONS}}
+      </div>
+    </div>
+
+    <div class="progress-band">
+      <div class="progress-row">
+        <span>{{CURRENT_ITEM_LABEL}}</span>
+        <span class="mono">{{PROGRESS_PCT}}%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill {{PROGRESS_CLASS}}" style="width: {{PROGRESS_PCT}}%;"></div>
+      </div>
+    </div>
+
+    <ol class="stage-list">
+      {{STAGES_HTML}}
+    </ol>
+  </section>
+
+  <section class="card col-5">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Registro de Actividad</h2>
+        <p class="card-subtitle">Eventos en vivo desde el servidor Python</p>
+      </div>
+      <span class="mono" style="font-size: 12px; color: var(--text-muted);">{{LOG_COUNT}} eventos</span>
+    </div>
+    <div class="log-scroll">
+      {{LOGS_HTML}}
+    </div>
+  </section>
+</div>

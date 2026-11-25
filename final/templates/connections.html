@@ -1,0 +1,80 @@
+<div class="split-12">
+  <section class="card card-pad col-7">
+    <div class="card-header" style="padding: 0 0 16px; margin-bottom: 18px;">
+      <div>
+        <h2 class="card-title">1. Credenciales Web de Aules / Moodle</h2>
+        <p class="card-subtitle">La sesión se cifra en el servidor sin guardar tu contraseña en texto plano.</p>
+      </div>
+      <span class="{{AULES_STATUS_CLASS}}" style="font-size: 12px;">{{AULES_STATUS_TEXT}}</span>
+    </div>
+
+    {{AULES_ACTIVE_CARD}}
+
+    <form method="post" action="/connections/aules" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="field-group">
+        <label for="aules-url" class="field-label">URL del portal Aules / Moodle (HTTPS)</label>
+        <input id="aules-url" name="base_url" type="url" required value="{{AULES_URL}}" placeholder="https://aules.edu.gva.es/fp" class="input" />
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;">
+        <div class="field-group">
+          <label for="aules-user" class="field-label">Usuario / NIA</label>
+          <input id="aules-user" name="username" type="text" required value="{{AULES_USERNAME}}" placeholder="Tu usuario de Aules" class="input" />
+        </div>
+        <div class="field-group">
+          <label for="aules-pass" class="field-label">Contraseña de Aules</label>
+          <input id="aules-pass" name="password" type="password" required placeholder="••••••••" class="input" />
+        </div>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">{{AULES_SUBMIT_LABEL}}</button>
+      </div>
+    </form>
+  </section>
+
+  <div class="col-5" style="display: flex; flex-direction: column; gap: 24px;">
+    <section class="card card-pad">
+      <div class="card-header" style="padding: 0 0 14px; margin-bottom: 16px;">
+        <div>
+          <h2 class="card-title">2. Cuenta de Google Drive</h2>
+          <p class="card-subtitle">Autoriza OAuth 2.0 para crear carpetas Aules Sync y subir entregables.</p>
+        </div>
+        <span class="{{DRIVE_STATUS_CLASS}}" style="font-size: 12px;">{{DRIVE_STATUS_TEXT}}</span>
+      </div>
+      {{DRIVE_CARD_BODY}}
+    </section>
+
+    <section class="card card-pad">
+      <div class="card-header" style="padding: 0 0 14px; margin-bottom: 16px;">
+        <div>
+          <h2 class="card-title">3. API de Groq Cloud y Programador</h2>
+          <p class="card-subtitle">La clave GROQ_API_KEY se lee de las variables de entorno del servidor.</p>
+        </div>
+        <span class="{{GROQ_STATUS_CLASS}}" style="font-size: 12px;">{{GROQ_STATUS_TEXT}}</span>
+      </div>
+
+      {{GROQ_WARNING_BANNER}}
+
+      <form method="post" action="/connections/settings" style="display: flex; flex-direction: column; gap: 14px;">
+        <div class="field-group">
+          <label for="groq-model" class="field-label">Modelo de Groq para resolución</label>
+          <select id="groq-model" name="selected_model" class="select">
+            {{MODEL_OPTIONS_HTML}}
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="sync-interval" class="field-label">Sincronización automática en servidor</label>
+          <div class="inline-form">
+            <select id="sync-interval" name="auto_sync_interval_minutes" class="select" style="flex: 1;">
+              {{INTERVAL_OPTIONS_HTML}}
+            </select>
+            <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer;">
+              <input type="checkbox" name="auto_sync_enabled" value="1" {{AUTO_SYNC_CHECKED}} />
+              Activa
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar preferencias</button>
+      </form>
+    </section>
+  </div>
+</div>

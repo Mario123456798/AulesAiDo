@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{TITLE}} — Aules Sync Agent</title>
+  <meta name="description" content="Agente académico automático en Python, HTML y CSS para Aules, Groq y Google Drive." />
+  {{AUTO_REFRESH_META}}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Aules Sync Agent</div>
+      <nav class="sidebar-nav" aria-label="Navegación principal">
+        <a href="/" class="nav-link {{NAV_PROCESS_ACTIVE}}">
+          <span>Proceso en Vivo</span>
+        </a>
+        <a href="/tasks" class="nav-link {{NAV_TASKS_ACTIVE}}">
+          <span>Asignaturas y Tareas</span>
+          <span class="nav-count">{{NAV_TASKS_COUNT}}</span>
+        </a>
+        <a href="/knowledge" class="nav-link {{NAV_KNOWLEDGE_ACTIVE}}">
+          <span>Base de Aprendizaje</span>
+          <span class="nav-count">{{NAV_KNOWLEDGE_COUNT}}</span>
+        </a>
+        <a href="/drive" class="nav-link {{NAV_DRIVE_ACTIVE}}">
+          <span>Google Drive</span>
+        </a>
+        <a href="/connections" class="nav-link {{NAV_CONNECTIONS_ACTIVE}}">
+          <span>Conexiones</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <strong>{{SIDEBAR_USER}}</strong>
+        <span>Aules: {{SIDEBAR_AULES}}</span>
+        <span>Drive: {{SIDEBAR_DRIVE}}</span>
+        <form method="post" action="/auth/logout" style="margin-top: 6px;">
+          <button type="submit" class="btn btn-sm" style="width: 100%;">Cerrar sesión web</button>
+        </form>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="breadcrumb">
+          <span class="breadcrumb-root">Estudio</span>
+          <span class="breadcrumb-sep" aria-hidden="true">/</span>
+          <h1 class="breadcrumb-current">{{BREADCRUMB}}</h1>
+        </div>
+        <div>
+          {{TOPBAR_CTA}}
+        </div>
+      </header>
+
+      <main class="workspace">
+        {{FLASH_BANNER}}
+        {{CONTENT}}
+      </main>
+    </div>
+  </div>
+</body>
+</html>

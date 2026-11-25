@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso — Aules Sync Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <h1 class="card-title" style="font-size: 20px;">Aules Sync Agent</h1>
+      <p class="card-subtitle" style="margin-bottom: 20px;">
+        {{AUTH_SUBTITLE}}
+      </p>
+
+      {{AUTH_ERROR}}
+
+      <form method="post" action="{{AUTH_ACTION}}" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="field-group">
+          <label for="passcode" class="field-label">{{AUTH_LABEL}}</label>
+          <input id="passcode" name="passcode" type="password" required minlength="4" autocomplete="current-password" class="input" placeholder="Introduce tu clave de acceso" />
+        </div>
+        {{AUTH_CONFIRM_FIELD}}
+        <button type="submit" class="btn btn-primary" style="width: 100%;">{{AUTH_BUTTON}}</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

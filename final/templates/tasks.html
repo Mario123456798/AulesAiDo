@@ -1,0 +1,17 @@
+<div class="card toolbar">
+  <div class="segmented">
+    {{FILTER_TABS_HTML}}
+  </div>
+
+  <form method="get" action="/tasks" class="inline-form">
+    <input type="hidden" name="filter" value="{{ACTIVE_FILTER}}" />
+    <select name="course" class="select" style="width: auto; min-width: 200px;" aria-label="Filtrar por asignatura">
+      <option value="all">Todas las asignaturas ({{COURSES_COUNT}})</option>
+      {{COURSE_OPTIONS_HTML}}
+    </select>
+    <input type="search" name="q" value="{{SEARCH_QUERY}}" placeholder="Buscar tarea o enunciado..." class="input" style="width: 230px;" />
+    <button type="submit" class="btn btn-sm">Filtrar</button>
+  </form>
+</div>
+
+{{TASKS_BODY_HTML}}

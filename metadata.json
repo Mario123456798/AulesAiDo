@@ -1,0 +1,6 @@
+{
+  "name": "Aules Sync Agent",
+  "description": "Agente inteligente para automatizar tareas de Aules, analizarlas y resolverlas con Grok y sincronizarlas automáticamente con Google Drive.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
